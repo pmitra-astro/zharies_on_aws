@@ -14,6 +14,6 @@ The "zhaires_scripts/InPutGenerator.py" (adapted script from Matias) generates i
 
 The "zhaires_scripts/generatestarshape_all.py" generates input files for the 2nd round with star-shape antenna positions (also room for realistic arrays) built upon the script "GenerateStarShapeFromshower_pm.py" (adapted from Matias's script).
 
-The "make_subfile***" scripts generate the submit files (end with *.cluster) that are ready to be submitted (see submit.py).
+The "make_subfile***" scripts generate the submit files (end with *.cluster) that are ready to be submitted (see submit.py) to the pcluster (uses slurm scheduler).
 
 **P.S:** notes on how to install ZHAireS can be found in "InstallingZHAireS.pdf" (adapted from the user documentation).
