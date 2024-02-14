@@ -1,0 +1,43 @@
+Region: eu-central-1
+Image:
+  Os: alinux2
+SharedStorage:
+  - MountDir: /shared
+    Name: default-ebs
+    StorageType: Ebs
+HeadNode:
+  InstanceType: c5a.large
+  Networking:
+    SubnetId: subnet-0478ea52c47946e1f
+    ElasticIp: false
+  Ssh:
+    KeyName: mykey
+Scheduling:
+  Scheduler: slurm
+  SlurmQueues:
+    - Name: myspot
+      CapacityType: SPOT
+      ComputeResources:
+        - Name: compute-spot
+          InstanceType: c5a.large
+          MinCount: 0
+          MaxCount: 20
+          DisableSimultaneousMultithreading: true
+      Networking:
+        SubnetIds:
+          - subnet-0478ea52c47946e1f
+        PlacementGroup:
+          Enabled: true
+    - Name: myondemand
+      CapacityType: ONDEMAND
+      ComputeResources:
+          - Name: compute-ondemand
+            InstanceType: c5a.large
+            MinCount: 0
+            MaxCount: 20
+            DisableSimultaneousMultithreading: true
+      Networking:
+        SubnetIds:
+          - subnet-0478ea52c47946e1f
+        PlacementGroup:
+          Enabled: true      
